@@ -1,13 +1,22 @@
 import React from 'react'
 
-import { ButtonContainer } from './styles';
+import { ButtonContainer, Loading } from './styles';
 
-function Button({onClick}) {
-  return (
-    <ButtonContainer onClick={onClick}>
-       Buscar
-    </ButtonContainer>
+function Button({onClick, loading}) {
+  return(
+    <>
+      {loading ? (
+        <ButtonContainer onClick={onClick} disabled>
+          Carregando... <Loading/>
+        </ButtonContainer>
+      ):(
+      <ButtonContainer onClick={onClick}>
+        Buscar
+      </ButtonContainer>
+      )}
+    </>
   )
+
 }
 
 export default Button
